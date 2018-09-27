@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>groupProject1</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,6 +10,28 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
     crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+
+
+  <!-- CSS Starts Here, Jared will seperate into seperate file-->
+  <style>
+
+    #firstHead{
+      text-align: center;
+      font-family: 'Julius Sans One';
+
+    }
+
+    #subFirstHead{
+      text-align: center; 
+      font-family: 'Cinzel Decorative';
+      }
+    
+    
+    </style>
 </head>
 
 <body>
@@ -17,109 +39,164 @@
   <div class="container">
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
-        <h1 class="display-4">Welcome! -- App Name here!</h1>
-        <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        <h1 class="display-4" id="firstHead">Welcome! -- App Name here!</h1>
+        <p class="lead" id="subFirstHead">Potential Names: "The Numbers", "OrganizeU", "$Control", "BudgetorDie"</p>
       </div>
     </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        Hustle
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>Advertise your face off and sneak into the captialist corner of your mind.</p>
+          <footer class="blockquote-footer">Proabably some large company like...<cite title="Source Title">Amazon or
+              Salesforce</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  </div>
+
+  <br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="alert alert-success" role="alert">
+          Enter Your Budget Info Here:
+        </div>
+        <br>
+        <div class="input-group">
+          <input type="text" class="form-control" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Assets</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Income</a>
+              <a class="dropdown-item" href="#">Cash</a>
+              <a class="dropdown-item" href="#">Stocks</a>
+              <a class="dropdown-item" href="#">Real Estate</a>
+              <a class="dropdown-item" href="#">Cryptocurrency</a>
+              <a class="dropdown-item" href="#">Other</a>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <!-- Remove disabled button attribute prior to start JRY -->
+        <button type="button" class="btn btn-outline-success" disabled>Submit Asset</button>
+
+        <br>
+        <div></div>
+        <br>
+        <div class="input-group">
+          <input type="text" class="form-control" aria-label="Text input with dropdown button">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">Liabilities</button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#">Rent/Mortgage</a>
+              <a class="dropdown-item" href="#">Car Payment</a>
+              <a class="dropdown-item" href="#">Student Loans</a>
+              <a class="dropdown-item" href="#">Credit Cards</a>
+              <a class="dropdown-item" href="#">Other</a>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <!-- Remove disabled button attribute prior to start JRY -->
+        <button type="button" class="btn btn-outline-warning" disabled>Submit Liability</button>
+
+      </div>
+
+      <br>
+
+      <div class="text-center">
+        <div class="col-sm-4">
+          <img src="chart.jpg" class="rounded" alt="chartpic" width="350" height="300">
+        </div>
+      </div>
+
+      <br>
+
+      <!-- <div class="container"> -->
+      <div class="col-sm-4">
+        <div class="card border-success mb-3" style="max-width: 30rem;">
+          <div class="card-header">Stock API and Crypto Input in Headings</div>
+          <div class="card-body text-success">
+            <h5 id="stocks-view"></h5>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><b>Input Stock Ticker</b></span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="stock-input">
+            </div>
+            <input id="add-stock" type="submit" value="Submit">
+           
+            <button type="button" class="btn btn-outline-primary" disabled>Add to Watchlist</button>
+            <div></div>
+            <br>
 
 
+            <p class="card-text">MSFT</p>
+            <p class="card-text">AMZN</p>
 
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Dropdown</button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
+          </div>
         </div>
       </div>
     </div>
-
     <br>
+    <!-- SECOND CARD STARTS HERE IF YOU WANT BRUHHHH..... -->
+    <!-- <div class="card border-primary mb-3" style="max-width: 18rem;">
+                            <div class="card-header">Bitcoin or Crypto Info Here</div>
+                            <div class="card-body text-primary">
+                              <h5 class="card-title">Primary card title</h5>
+                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            </div>
+                          </div>
+                       </div> -->
 
-    <div class="input-group">
-      <input type="text" class="form-control" aria-label="Text input with dropdown button">
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">Dropdown</button>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
-          <div role="separator" class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Separated link</a>
-        </div>
-      </div>
-    </div>
-    <br>
+  </div>
 
-    <button type="button" class="btn btn-outline-success">Success</button>
+  <br>
 
-    <br>
-
-    <div class="text-center">
-      <img src="..." class="rounded" alt="...">
-    </div>
-
-    <!-- API Starts ============================================================= -->
-    <div class="card border-success mb-3" style="max-width: 18rem;">
-      <div class="card-header">Stock API Input Here</div>
-      <div class="card-body text-success">
-        <div id="stocks-view"></div>
-        <h5 class="card-title">Success card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-      </div>
-    </div>
-    <br>
-    <div class="card border-primary mb-3" style="max-width: 18rem;">
-      <div class="card-header">Bitcoin or Crypto Info Here</div>
-      <div class="card-body text-primary">
-        <h5 class="card-title">Primary card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-      </div>
-    </div>
-
+  <div class="container">
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Assets</th>
+          <th scope="col">Liabilities</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <th scope="row">1</th>
           <td>Mark</td>
           <td>Otto</td>
-          <td>@mdo</td>
         </tr>
         <tr>
-          <th scope="row">2</th>
           <td>Jacob</td>
           <td>Thornton</td>
-          <td>@fat</td>
         </tr>
         <tr>
-          <th scope="row">3</th>
           <td>Larry</td>
           <td>the Bird</td>
-          <td>@twitter</td>
         </tr>
       </tbody>
     </table>
   </div>
-
+  </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
   <script src="assets/javascript/app.js"></script>
 </body>
 
