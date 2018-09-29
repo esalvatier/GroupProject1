@@ -1,17 +1,15 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>groupProject1</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<head>
+  <title>groupProject1</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Google Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Julius Sans One' rel='stylesheet'>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
+    crossorigin="anonymous">
 
     <!-- External CSS connection -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -66,6 +64,8 @@
         </div> -->
 
         <br>
+        <!-- Remove disabled button attribute prior to start JRY -->
+        <button type="button" class="btn btn-outline-success" disabled>Submit Asset</button>
 
       <div class="container">
           <div class="row">
@@ -146,40 +146,41 @@
                   <button type="button" class="btn btn-outline-warning" disabled>Submit Liability</button>
 
           </div>
+        </div>
+
+        <br>
+        <!-- Remove disabled button attribute prior to start JRY -->
+        <button type="button" class="btn btn-outline-warning" disabled>Submit Liability</button>
+
+      </div>
+
+      <br>
+
+      <div class="text-center">
+        <div class="col-sm-4">
+          <img src="chart.jpg" class="rounded" alt="chartpic" width="350" height="300">
+        </div>
+      </div>
+
+      <br>
+
+      <!-- <div class="container"> -->
+      <div class="col-sm-4">
+        <div class="card border-success mb-3" style="max-width: 30rem;">
+          <div class="card-header">Stock API and Crypto Input in Headings</div>
+          <div class="card-body text-success">
+            <h5 id="stocks-view"></h5>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend"><b>Input Stock Ticker</b></span>
+              </div>
+              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="stock-input">
+            </div>
+            <input id="add-stock" type="submit" value="Submit">
            
-                 <br>
-
-                 <div class="text-center">
-                    <div class="col-sm-4">
-                  <img src="chart.jpg" class="rounded" alt="chartpic"width="350" height="300">
-                </div>
-                </div>
-
-                <br>
-
-                 <!-- <div class="container"> -->
-                        <div class="col-sm-4">
-                      <div class="card border-success mb-3" style="max-width: 30rem;">
-                          <div class="card-header">Stock API and Crypto Input in Headings</div>
-                          <div class="card-body text-success">
-                            <h5 class="card-title">DOW</h5>
-                            <h5 class="card-title">NASDAQ</h5>
-                            <h5 class="card-title">S&P 500</h5>
-                            <h5 class="card-title">Bitcoin</h5>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend"><b>Input Stock Ticker</b></span>
-                                </div>
-                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                              </div>
-
-                              <button type="button" class="btn btn-outline-primary" disabled>Add to Watchlist</button>
-                              <div></div>
-                              <br>
-
-
-                            <p class="card-text">MSFT</p>
-                            <p class="card-text">AMZN</p>
+            <button type="button" class="btn btn-outline-primary" disabled>Add to Watchlist</button>
+            <div></div>
+            <br>
 
                           </div>
                         </div>
