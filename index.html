@@ -165,21 +165,39 @@
       <br>
 
       <!-- <div class="container"> -->
-      <div class="col-sm-4">
+      <div class="col-sm-6">
         <div class="card border-success mb-3" style="max-width: 30rem;">
           <div class="card-header">Stock API and Crypto Input in Headings</div>
           <div class="card-body text-success">
             <h5 id="stocks-view"></h5>
 
             <div class="input-group mb-3">
-              <div class="input-group-prepend"><b>Input Stock Ticker</b></span>
+              <div class="input-group-prepend"><b>Watchlist</b></span>
               </div>
+
+
               <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" id="stock-input">
             </div>
             <input id="add-stock" type="submit" value="Submit">
-           
-            <button type="button" class="btn btn-outline-primary" disabled>Add to Watchlist</button>
-            <div></div>
+           <br><br>
+
+
+
+            <div class="card">
+            </div><h5 id="search-view"></h5>
+            <div class="input-group-prepend"><b>Search Ticker</b></span>
+            </div>
+
+            <input type="text" id="search-input">
+            <input type="submit" value="search" id="search-stock">
+
+          </div>
+          <div class="card">
+            <div id="crypto-view"></div>
+            <br><br>
+            <input type="text" id="crypto-input">
+            <input type="submit" value="search" id="search-crypto">
+          </div>
             <br>
 
                           </div>
@@ -219,9 +237,8 @@
 </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  
+    <script src="assets/javascript/app.js"></script>
   </body>
 </html>
