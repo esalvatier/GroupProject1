@@ -1,11 +1,26 @@
 #firstHead{
       text-align: center;
-      font-family: 'Julius Sans One';
+      font-family: 'Michroma';
+      color: green;
 
     }
 
-    #subFirstHead{
+#subFirstHead{
       text-align: center; 
       font-family: 'Cinzel Decorative';
+      color: green;
       }
+
+#ads {
+       margin-bottom: 25px; 
+      /* padding-bottom: 25px; */
+}
+
+#liab {
+      margin-top: 15px;
+}
+
+#liabilityAdd {
+      /* margin-top: 15px; */
+}
     
