@@ -8,14 +8,68 @@ $(document).ready(function () {
     messagingSenderId: "239802611255"
   };
   firebase.initializeApp(config);
+
+  // Load the Visualization API and the corechart package.
+  google.charts.load('current', {
+    'packages': ['corechart']
+  });
+
+  // Set a callback to run when the Google Visualization API is loaded.
+  google.charts.setOnLoadCallback(drawLiabChart, drawAssetChart);
   // API Key for Alpha Vantage FNPWI5GFVP98Q8ZL
   // API key for World Trading zCxY4p4XRUfscbHnY2eRflSMKBIccU0PnSTFOrpP6397VQuzMayCp4JpNqUf
   var database = firebase.database();
   var currentUser;
-  var assetList = [];
+  liabilitiesList = [];
+  assetList = [];
   var stocks = ["AAPL"];
 
   queryfunct(stocks, "#stocks-view");
+
+  function drawLiabChart() {
+    // Create the data table.
+    liabilitiesList.forEach( function(current){
+      current[1] = parseInt(current[1]);
+    });
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Type');
+    data.addColumn('number', 'Dollars');
+    data.addRows(liabilitiesList);
+
+    // Set chart options
+    var options = {
+      'title': 'Liabilities',
+      'width': 350,
+      'height': 300,
+      pieHole: 0.4
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('liabilitiesChart'));
+    chart.draw(data, options);
+  }
+  function drawAssetChart() {
+    // Create the data table.
+    assetList.forEach( function(current){
+      current[1] = parseInt(current[1]);
+    });
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Type');
+    data.addColumn('number', 'Dollars');
+    data.addRows(assetList);
+
+    // Set chart options
+    var options = {
+      'title': 'Assets',
+      'width': 350,
+      'height': 300,
+      pieHole: 0.4
+    };
+
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('assetsChart'));
+    chart.draw(data, options);
+  }
 
   function loginForm() {
     $("#userLogSection").empty();
@@ -53,19 +107,19 @@ $(document).ready(function () {
     for (var i = 0; i < arrayTerms.length; i++) {
       var queryURL = "https://www.worldtradingdata.com/api/v1/stock_search?search_term=" + arrayTerms[i] + "&search_by=symbol,name&limit=20&stock_exchange=NASDAQ,NYSE&page=1&api_token=zCxY4p4XRUfscbHnY2eRflSMKBIccU0PnSTFOrpP6397VQuzMayCp4JpNqUf"
       $.ajax({
-          url: queryURL,
-          method: "GET"
-        }).then(function (response) {
-          var stockDiv = $("<div class='stock'>")
+        url: queryURL,
+        method: "GET"
+      }).then(function (response) {
+        var stockDiv = $("<div class='stock'>")
 
-          var stockName = response.data[0].name;
-          var stockPrice = response.data[0].price;
+        var stockName = response.data[0].name;
+        var stockPrice = response.data[0].price;
 
-          var pOne = $("<p>").text(stockName + " USD: $" + stockPrice);
-          stockDiv.append(pOne);
+        var pOne = $("<p>").text(stockName + " USD: $" + stockPrice);
+        stockDiv.append(pOne);
 
-          $(stringTerm).append(stockDiv);
-        });
+        $(stringTerm).append(stockDiv);
+      });
     }
   }
 
@@ -107,13 +161,14 @@ $(document).ready(function () {
   }
 
   function getStocks(user, newStock) {
-    database.ref(user).once("value", function () {
-    }).then(function (childSnapShot){
+    database.ref(user).once("value", function () {}).then(function (childSnapShot) {
       var userStocks = JSON.parse(childSnapShot.val().stocks);
       if (newStock !== undefined) {
         userStocks.push(newStock);
-        database.ref(user).update({"stocks": JSON.stringify(userStocks)});
-      } else if ( userStocks.length <= 0) {
+        database.ref(user).update({
+          "stocks": JSON.stringify(userStocks)
+        });
+      } else if (userStocks.length <= 0) {
         userStocks = stocks;
       }
       queryfunct(userStocks, "#stocks-view");
@@ -150,6 +205,10 @@ $(document).ready(function () {
         }).addClass("btn btn-outline-danger").text("Sign-Out");
         $("#userLogSection").append(userDisp, signOut);
         drawTable(currentUser);
+        liabilitiesList = JSON.parse(snapShot.child(currentUser).val().liabilities);
+        assetList = JSON.parse(snapShot.child(currentUser).val().assets);
+        drawLiabChart();
+        drawAssetChart();
         getStocks(currentUser, undefined);
       });
     } else {}
@@ -178,16 +237,12 @@ $(document).ready(function () {
       method: "GET"
     }).then(function (response) {
 
-      console.log(response);
-
       var dataobj = response.data;
-      console.log(dataobj);
 
       for (var tickers in dataobj) {
         var cryptoDiv = $("#crypto-view");
 
         var bitName = dataobj[tickers].name;
-        console.log(bitName);
         var bitPrice = dataobj[tickers].quotes.USD.price;
         bitPrice = Number(Math.round(bitPrice + 'e2') + 'e-2');
 
@@ -195,8 +250,6 @@ $(document).ready(function () {
         cryptoDiv.append(cryptOne);
 
         $("#crypto-view").append(cryptoDiv);
-
-        console.log(cryptoDiv);
       }
 
     });
@@ -221,16 +274,18 @@ $(document).ready(function () {
     var type = $("#liabilityType").val().trim();
     database.ref(currentUser + "/liabilities").once("value", function (childSnapShot) {
       var tempArr = JSON.parse(childSnapShot.val());
+
       if (tempArr.length === 0) {
         tempArr = [];
       }
       tempArr.push([type, value]);
+      liabilitiesList = tempArr;
       database.ref(currentUser).update({
         liabilities: JSON.stringify(tempArr)
       });
-      console.log(tempArr);
     }).then(function () {
       $("#liabilityInput").text("");
+      drawLiabChart();
       drawTable(currentUser);
     });
   });
@@ -245,12 +300,13 @@ $(document).ready(function () {
         tempArr = [];
       }
       tempArr.push([type, value]);
+      assetList = tempArr;
       database.ref(currentUser).update({
         assets: JSON.stringify(tempArr)
       });
-      console.log(tempArr);
     }).then(function () {
       $("#assetInput").text("");
+      drawAssetChart();
       drawTable(currentUser);
     });
   });
@@ -277,7 +333,6 @@ $(document).ready(function () {
     firebase.auth().signOut().then(function () {
       currentUser = undefined;
       loginForm();
-      console.log(currentUser);
     }).catch(function (error) {
       console.log(error);
     });
