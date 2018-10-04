@@ -41,7 +41,7 @@ $(document).ready(function () {
       'title': 'Liabilities',
       'width': 350,
       'height': 300,
-      pieHole: 0.4
+      pieHole: 0.3
     };
 
     // Instantiate and draw our chart, passing in some options.
@@ -63,7 +63,7 @@ $(document).ready(function () {
       'title': 'Assets',
       'width': 350,
       'height': 300,
-      pieHole: 0.4
+      pieHole: 0.3
     };
 
     // Instantiate and draw our chart, passing in some options.
