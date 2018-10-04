@@ -141,13 +141,13 @@
 
         </div>
       </div>
+
       <br>
 
-
-      <div class="col-md-4">
-        <img src="chart.jpg" class="rounded" alt="chartpic" width="350" height="300">
+      <div class="col-sm-4">
+        <div id="liabilitiesChart"></div>
+        <div id="assetsChart"></div>
       </div>
-
 
       <br>
 
@@ -156,30 +156,37 @@
         <div class="card border-success mb-3" style="max-width: 30rem;">
           <div class="card-header">Stock API and Crypto Input in Headings</div>
           <div class="card-body text-success">
-            <h5 class="card-title">DOW</h5>
-            <h5 class="card-title">NASDAQ</h5>
-            <h5 class="card-title">S&P 500</h5>
-            <h5 class="card-title">Bitcoin</h5>
-
-            <div class="input-group mb-3">
-              <div class="input-group-prepend"><b>Input Stock Ticker</b></span>
-              </div>
-              <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <h5 id="stocks-view"></h5>
+            <div class="input-group"><b>Watchlist</b></div>
+            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+              id="stock-input">
+            <input id="add-stock" type="submit" value="Submit">
+            <br>
+            <h5 id="search-view"></h5>
+            <div class="input-group-prepend"><b>Search Ticker</b>
             </div>
 
-            <button type="button" class="btn btn-outline-primary" disabled>Add to Watchlist</button>
-            <div></div>
-            <br>
-
-
-            <p class="card-text">MSFT</p>
-            <p class="card-text">AMZN</p>
+            <input type="text" id="search-input">
+            <input type="submit" value="search" id="search-stock">
 
           </div>
+          <div class="card">
+            <div id="crypto-view"></div>
+            <br>
+          </div>
+          <br>
+
         </div>
       </div>
     </div>
-    <br>
+  </div>
+  <br>
+
+  </div>
+  </div>
+  </div>
+  </div>
+  <br>
 
   </div>
 
@@ -212,13 +219,14 @@
   </div>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
     crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em"
     crossorigin="anonymous"></script>
   <script src="https://www.gstatic.com/firebasejs/5.5.1/firebase.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="assets/javascript/app.js"></script>
 </body>
 
