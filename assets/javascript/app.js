@@ -219,10 +219,8 @@ $(document).ready(function () {
     var email = $("#userEmail").val().trim();
     var password = $("#userPassword").val().trim();
     firebase.auth().signInWithEmailAndPassword(email, password).catch(function (error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      $("#errorDisp").text(error.message);
+      $("#errorModal").modal("show");
       // ...
     });
   });
@@ -261,9 +259,8 @@ $(document).ready(function () {
     var password = $("#userPassword").val().trim();
     firebase.auth().createUserWithEmailAndPassword(email, password).catch(function (error) {
       // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-      console.log(errorCode, errorMessage);
+      $("#errorDisp").text(error.message);
+      $("#errorModal").modal("show");
       // ...
     });
   });
